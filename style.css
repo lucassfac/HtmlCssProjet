@@ -1,5 +1,11 @@
 
-p {
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.couleur_accueil {
     color: orange;
 }
 
@@ -20,22 +26,50 @@ a {
     border-radius: 50% 50% 50% 50%;
     background-color: #ffffff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    margin: 20px; /* espace entre le logo et le titre */
+    margin: 10px; /* espace entre le logo et le titre */
 }
 
-.ma-classe2 {
+.ma-classe3-color, .ma-classe2-color {
     color: orange;
 }
 
+.barre {
+    display: flex;
+    justify-content: space-between;
+    margin: none; /* espace entre la barre et le titre */
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    width: 100px;
+    
+}
+
+.menu span {
+    font-size: 36px;
+    color: rgb(255, 255, 255);
+    text-align: right;
+    border: orange 2px solid;  
+    border-radius: 30%;
+    cursor: pointer;
+}
+
+.menu span:hover {
+    color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.8);;
+}
+
 .defzone {
-    font-family: "Inter", sans-serif;
     text-align: center;
-    padding: 17px;
-    margin: 20px;
+    padding: 15px;
+    margin: 10px;
     border: 2px solid #fff;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    line-height: 1.5em;
+    box-sizing: border-box;
 }
 
 h3 {
@@ -48,14 +82,15 @@ h3 {
 }
 
 .selectzone {
-    font-family: "Inter", sans-serif;
     width: 100%;
     max-width: 700px;
     margin: 60px auto;
+    padding-top: 20px;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 2em; /* espace entre les bulles */
+    gap: 5em; /* espace entre les bulles */
     background: transparent;
     border: none;
     box-shadow: none;
@@ -79,28 +114,25 @@ h3 {
 }
 
 section {
-    font-family: "Inter", sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     justify-content: center;
     margin: 30px;
     padding: 10px;
 }
 
 .page_footer {
-    font-family: "Inter", sans-serif;
     text-align: left;
-    margin: 0;
-    padding: 1.5em 2em;
-    background: aliceblue;
-    position: fixed; 
-    bottom: 0;
-    left: 0;
-    right: 0;
+    margin: none;
+    padding: 10px;
+    background: rgb(255, 255, 255);
+    position: relative; 
 }
 
 body {
+    font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
     background-image: url("images/background4.jpg");
@@ -108,21 +140,62 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     height: 100%;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
-html{
-    height: 100%;
+html, body {
+    height: auto;
     min-height: 100vh;
-    margin: 0;
-    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
 }
+
 
 main {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    margin-top: 2px;
+    padding: 20px;
+    border: 2px solid #fff;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    backdrop-filter: blur(2px);
+}
+
+select {
+    border-radius: 20px;
+    padding: 10px;
+    background: transparent;
+    border: 2px solid orange;
+}
+
+select:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+select:active {
+    filter: blur(2px);
+}
+
+label {
+    font-weight: 600;
+}
+
+option {
+    border-radius: 20px;
+    padding: 10px;
 }
 
 #custom_select {
@@ -157,6 +230,115 @@ main {
 }
 
 body.no-bg {
-    background: #fff !important; /* ou une autre couleur de fond */
-    background-image: none !important;
+    font-family: "Poppins", sans-serif;
+    background-image: url("images/background2.jpg");
+    background-size: cover;
+}
+
+@media (max-width: 1024px) {
+    .selectzone {
+        gap: 3em;
+        max-width: 95vw;
+    }
+    .defzone, .form-container {
+        max-width: 95vw;
+        padding: 10px;
+    }
+    .btn {
+        min-width: 180px;
+        max-width: 90vw;
+        font-size: 1.2em;
+        padding: 1.2em 1em;
+    }
+}
+
+@media (max-width: 760px) {
+    .selectzone {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5em;
+        margin: 30px auto;
+        padding-top: 10px;
+    }
+    .btn {
+        min-width: 140px;
+        max-width: 100%;
+        font-size: 0.9em;
+        padding: 1em 0.7em;
+    }
+    .defzone, .form-container {
+        padding: 8px;
+        font-size: 0.95em;
+        margin: 8px;
+    }
+    .form-container {
+        text-align: center;
+    }
+    h1, h2 {
+        font-size: 1.3em;
+    }
+    #logo {
+        width: 100px;
+        height: 100px;
+        margin: 5px;
+    }
+    .barre {
+        display: flex;
+        flex-direction: row; /* reste en ligne */
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 5px;
+    }
+    .page_footer {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .defzone, .form-container {
+        padding: 4px;
+        font-size: 0.9em;
+        margin: 4px;
+    }
+    .form-container {
+        text-align: center;
+    }
+    h1, h2 {
+        font-size: 1em;
+    }
+    .barre {
+        display: flex;
+        flex-direction: row; /* reste en ligne */
+        justify-content: space-between;
+        padding: 10px 8px;
+    }
+    .menu {
+        display: inline-block;
+        box-sizing: border-box;
+        align-items: center;
+        text-align: center;
+    }
+    #logo {
+        width: 100px;
+        height: 100px;
+    }
+    .btn {
+        font-size: 0.85em;
+        padding: 0.7em 0.5em;
+    }
+    .selectzone {
+        gap: 1em;
+        margin: 15px auto;
+        align-items: center;
+    }
+    .page_footer {
+        padding: 5px;
+        font-size: 0.85em;
+    }
+
+    section {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
 }
